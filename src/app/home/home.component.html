@@ -1,0 +1,25 @@
+<p>
+  {{homeTitle}}
+</p>
+<ng-content></ng-content>
+
+<!--property binding-->
+<input [value]="myString" />
+<input [required]="myBoolean" />
+
+<!-- event binding -->
+<button (click)="alertMe('whats up man')">Click me</button>
+
+<!-- two way data binding -->
+<label>Name:</label>
+<input [(ngModel)]="ninja1.name" />
+<p>{{ninja1.name}}</p>
+<p>{{ninja1.belt}}</p>
+
+<!-- Custom property binding -->
+<h1>{{ninja.name}}</h1>
+<h1>{{ninja.belt}}</h1>
+
+
+<!-- Custom event binding -->
+<button type="button" name="button" (click)="fireYellEvent($event)">Hit me</button>

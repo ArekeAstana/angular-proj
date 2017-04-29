@@ -1,0 +1,39 @@
+<p [ngClass]="classes">
+  directory works!
+</p>
+<!--<p>{{ninja}}</p>-->
+<p *ngIf="test">Only show if test is true</p>
+
+<h2>Ninja listing</h2>
+<form id="filter">
+  <label>Filter ninjas by name</label>
+  <input   type="text" [ngModelOptions] = "{standalone: true}" [(ngModel)]="term" />
+</form>
+<ul id="ninja-listing">
+  <li *ngFor="let ninja of ninjas | filter:term">
+    <div class="single-ninja">
+      <!-- Belt Colour -->
+      <span [ngStyle]="{background: ninja.belt}">{{ninja.belt | slice:1:3}} belt</span>
+      <!-- Ninja Name -->
+      <h3>{{ninja.name}}</h3>
+      <!-- <h3>{{ninja.name | uppercase | slice:1:3 }}</h3> -->
+      <!-- <div (click)="remove($event)" [attr.data-name]="ninja.name">delete</div> -->
+    </div>
+  </li>
+</ul>
+
+<form id="add-ninja">
+  <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"/>
+  <input type="text" [(ngModel)]="belt" [ngModelOptions]="{standalone: true}"/>
+  <button (click)="fbPostData(name, belt)">Add Ninja</button>
+</form>
+
+
+<!--<button (click)="logIt()">Log me!</button>
+
+<style>
+  .blue {color: blue;}
+  .red {color: red}
+  .underline {text-decoration: underline;}
+</style>
+-->
